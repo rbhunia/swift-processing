@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Envelope xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
+    <!-- Application Header -->
+    <AppHdr xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
+        <Fr>
+            <FIId>
+                <FinInstnId>
+                    <BICFI>INSTBICXXX</BICFI>
+                </FinInstnId>
+            </FIId>
+        </Fr>
+        <To>
+            <FIId>
+                <FinInstnId>
+                    <BICFI>RECVBICXXX</BICFI>
+                </FinInstnId>
+            </FIId>
+        </To>
+        <BizMsgIdr>BMID1234567890</BizMsgIdr>
+        <MsgDefIdr>pacs.008.001.09</MsgDefIdr>
+        <BizSvc>SEPA</BizSvc>
+        <CreDt>2024-12-09T12:30:00</CreDt>
+        <CpyDplct>CODU</CpyDplct>
+        <PssblDplct>true</PssblDplct>
+    </AppHdr>
+
+    <!-- Message Body -->
+    <Document xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.09">
+        <FIToFICstmrCdtTrf>
+            <GrpHdr>
+                <MsgId>MSGID1234567890</MsgId>
+                <CreDtTm>2024-12-09T12:30:00</CreDtTm>
+                <NbOfTxs>1</NbOfTxs>
+                <SttlmInf>
+                    <SttlmMtd>CLRG</SttlmMtd>
+                    <ClrSys>
+                        <ClrSysId>TARGET2</ClrSysId>
+                    </ClrSys>
+                </SttlmInf>
+                <InstgAgt>
+                    <FinInstnId>
+                        <BICFI>INSTBICXXX</BICFI>
+                    </FinInstnId>
+                </InstgAgt>
+                <InstdAgt>
+                    <FinInstnId>
+                        <BICFI>RECVBICXXX</BICFI>
+                    </FinInstnId>
+                </InstdAgt>
+            </GrpHdr>
+            <CdtTrfTxInf>
+                <PmtId>
+                    <InstrId>INSTR1234567890</InstrId>
+                    <EndToEndId>E2E1234567890</EndToEndId>
+                    <TxId>TXID1234567890</TxId>
+                </PmtId>
+                <PmtTpInf>
+                    <InstrPrty>NORM</InstrPrty>
+                    <SvcLvl>
+                        <Cd>SEPA</Cd>
+                    </SvcLvl>
+                    <LclInstrm>
+                        <Cd>B2B</Cd>
+                    </LclInstrm>
+                    <CtgyPurp>
+                        <Cd>SUPP</Cd>
+                    </CtgyPurp>
+                </PmtTpInf>
+                <IntrBkSttlmAmt Ccy="EUR">1000.00</IntrBkSttlmAmt>
+                <IntrBkSttlmDt>2024-12-10</IntrBkSttlmDt>
+                <ChrgBr>SLEV</ChrgBr>
+                <Dbtr>
+                    <Nm>Debtor Name</Nm>
+                    <PstlAdr>
+                        <Ctry>DE</Ctry>
+                        <AdrLine>Debtor Address Line 1</AdrLine>
+                        <AdrLine>Debtor Address Line 2</AdrLine>
+                    </PstlAdr>
+                    <Id>
+                        <OrgId>
+                            <BICOrBEI>DEBTORBICXXX</BICOrBEI>
+                        </OrgId>
+                    </Id>
+                </Dbtr>
+                <DbtrAcct>
+                    <Id>
+                        <IBAN>DE89370400440532013000</IBAN>
+                    </Id>
+                </DbtrAcct>
+                <DbtrAgt>
+                    <FinInstnId>
+                        <BICFI>DEBTAGNTBICXXX</BICFI>
+                    </FinInstnId>
+                </DbtrAgt>
+                <CdtrAgt>
+                    <FinInstnId>
+                        <BICFI>CRDTAGNTBICXXX</BICFI>
+                    </FinInstnId>
+                </CdtrAgt>
+                <Cdtr>
+                    <Nm>Creditor Name</Nm>
+                    <PstlAdr>
+                        <Ctry>FR</Ctry>
+                        <AdrLine>Creditor Address Line 1</AdrLine>
+                        <AdrLine>Creditor Address Line 2</AdrLine>
+                    </PstlAdr>
+                    <Id>
+                        <OrgId>
+                            <BICOrBEI>CRDTORBICXXX</BICOrBEI>
+                        </OrgId>
+                    </Id>
+                </Cdtr>
+                <CdtrAcct>
+                    <Id>
+                        <IBAN>FR1420041010050500013M02606</IBAN>
+                    </Id>
+                </CdtrAcct>
+                <RmtInf>
+                    <Ustrd>Invoice Payment Ref: INV123456</Ustrd>
+                    <Strd>
+                        <CdtrRefInf>
+                            <Tp>
+                                <CdOrPrtry>
+                                    <Cd>SCOR</Cd>
+                                </CdOrPrtry>
+                            </Tp>
+                            <Ref>INV123456</Ref>
+                        </CdtrRefInf>
+                    </Strd>
+                </RmtInf>
+                <SplmtryData>
+                    <PlcAndNm>AdditionalInfo</PlcAndNm>
+                    <Envlp>
+                        <Any xmlns="">
+                            <CustomData>Custom XML Payload</CustomData>
+                        </Any>
+                    </Envlp>
+                </SplmtryData>
+            </CdtTrfTxInf>
+        </FIToFICstmrCdtTrf>
+    </Document>
+</Envelope>
